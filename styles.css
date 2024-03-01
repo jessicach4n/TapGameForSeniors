@@ -1,0 +1,19 @@
+body {
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.game {
+    background-color: lightblue;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.animal {
+    background-color: red;
+    position: absolute;
+    width: 100px;
+    height: 100px;
+}
