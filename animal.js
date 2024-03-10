@@ -6,8 +6,6 @@ export default class Animal {
 
     this.maxHeight = maxHeight;
     this.maxWidth = maxWidth;
-    this.width = this.node.offsetWidth;
-    this.height = this.node.offsetHeight;
     
     this.posX = this.getRandomInt(0);
     this.posY = this.getRandomInt(1);
@@ -25,20 +23,19 @@ export default class Animal {
     this.hasTouchedRight = false;
     
     gameSpace.appendChild(this.node);
-
   }
 
   move() {
     if (this.posX <= 0) {
       this.hasTouchedLeft = true;
     }
-    if (this.posX > this.maxWidth - this.width) {
+    else if (this.posX > (this.maxWidth - this.node.offsetWidth)) {
       this.hasTouchedRight = true;
     }
     if (this.posY <= 0) {
       this.hasTouchedTop = true;
     }
-    if (this.posY > this.maxHeight - this.height) {
+    else if (this.posY > (this.maxHeight - this.node.offsetHeight)) {
       this.hasTouchedBottom = true;
     }
     this.bounce();
@@ -85,9 +82,9 @@ export default class Animal {
   
   getRandomInt(dimension) {
     if (dimension == 0) {
-      return Math.floor(Math.random() * (this.maxWidth - this.width));
+      return Math.floor(Math.random() * (this.maxWidth - 100));
     }
-    return Math.floor(Math.random() * (this.maxHeight - this.height));
+    return Math.floor(Math.random() * (this.maxHeight - 100));
     
   }
 

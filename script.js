@@ -1,8 +1,8 @@
 import Animal from "./animal.js";
 
 let maxElement = 7;
-let maxHeight = window.innerHeight;
-let maxWidth = window.innerWidth;
+let maxHeight = document.getElementById('game').offsetHeight;
+let maxWidth = document.getElementById('game').offsetWidth;
 let spriteList = [];
 
 onload = function() {
