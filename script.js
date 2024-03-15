@@ -1,13 +1,21 @@
 import Animal from "./animal.js";
 
 let maxElement = 7;
-let maxHeight = document.getElementById('game').offsetHeight;
-let maxWidth = document.getElementById('game').offsetWidth;
+let game = document.getElementById('game');
+let maxHeight = game.offsetHeight;
+let maxWidth = game.offsetWidth;
 let spriteList = [];
 
 onload = function() {
     generateAnimals();
     setup();
+    game.addEventListener("click", goFish);
+}
+
+function goFish(event) {
+    let mouseX = event.clientX;
+    let mouseY = event.clientY;
+    console.log(mouseX, mouseY);
 }
 
 function toggleMenu() {
