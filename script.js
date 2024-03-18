@@ -18,10 +18,10 @@ function goFish(event) {
     let mouseX = event.clientX;
     let mouseY = event.clientY;
 
-    claw.setReset();
-    claw.setPositions(mouseX, mouseY);
     if (!claw.getAlreadyMoving()) {
+        claw.setReset();
         claw.setAlreadyMoving(true);
+        claw.setPositions(mouseX, mouseY);
         claw.tick();
     }
 }

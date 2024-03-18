@@ -1,9 +1,9 @@
 export default class Claw {
     constructor() {
         this.node = document.getElementById('claw');
-        this.speed = 6;
+        this.speed = 8;
         this.initPosition = -window.innerHeight;
-        this.currentPosition = this.initPosition;
+        this.currentPositionY = this.initPosition;
         this.posMaxY = this.initPosition + this.node.offsetHeight;
         this.targetReached = false;
         this.alreadyMoving = false;
@@ -28,26 +28,26 @@ export default class Claw {
     }
 
     move() {
+        console.log(this.alreadyMoving);
         if (!this.targetReached) {
-            this.currentPosition += this.speed;
-            if (this.currentPosition >= this.posMaxY || this.currentPosition >= this.targetY) {
+            this.currentPositionY += this.speed;
+            if (this.currentPositionY >= this.posMaxY || this.currentPositionY >= this.targetY) {
                 this.targetReached = true;
             }
         }
         else {
-            this.currentPosition -= this.speed;
-            if (this.currentPosition <= this.initPosition) {
-                this.currentPosition = this.initPosition;
+            this.currentPositionY -= this.speed;
+            if (this.currentPositionY <= this.initPosition) {
+                this.currentPositionY = this.initPosition;
                 this.alreadyMoving = false;
             }
         }
         
-        this.node.style.top = this.currentPosition + 'px';
+        this.node.style.top = this.currentPositionY + 'px';
     }
 
     tick() {
         this.move();
-        
         window.requestAnimationFrame(this.tick.bind(this));
     }
 }
