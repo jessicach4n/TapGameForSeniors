@@ -1,12 +1,14 @@
 import Animal from "./animal.js";
 import Claw from "./claw.js";
 
-let maxElement = 7;
+let maxElement = 10;
 let game = document.getElementById('game');
 let maxHeight = game.offsetHeight;
 let maxWidth = game.offsetWidth;
 let spriteList = [];
+let spritesToRemove = null;
 let claw = new Claw();
+let counter = 0;
 
 onload = function() {
     generateAnimals();
@@ -37,12 +39,15 @@ function setup() {
 function generateAnimals() {
     for (let i = 0; i < maxElement; i++) {
         let animal = new Animal(i, maxWidth, maxHeight, document.getElementById('game'));
-        animal.node.addEventListener("click", handleStart);
-        // animal.addEventListener("touchend", handleEnd);
-        // animal.addEventListener("touchcancel", handleCancel);
-        // animal.addEventListener("touchmove", handleMove);
+        animal.node.addEventListener("click", handleStart);;
         spriteList.push(animal);
     }
+}
+
+function addAnimal() {
+    let animal = new Animal(spriteList.length, maxWidth, maxHeight, document.getElementById('game'));
+    animal.node.addEventListener("click", handleStart);
+    spriteList.push(animal);
 }
 
 function handleStart(event) {
@@ -52,7 +57,21 @@ function handleStart(event) {
 const tick = () => {
     spriteList.forEach(sprite => {
         sprite.move();
+        // spritesToRemove = claw.collison(sprite.node)
+        counter += claw.collison(sprite.node)
     });
+    
+    // spritesToRemove.forEach(sprite => {
+    //     spriteList.splice(spriteList.indexOf(sprite), 1);
+    // });
+
+    // console.log(spritesToRemove);
+    // console.log(spriteList.length)
+
+    if (counter == 1) {
+        counter = 0;
+        setTimeout(addAnimal, 1500);
+    }
 
     window.requestAnimationFrame(tick);
 }

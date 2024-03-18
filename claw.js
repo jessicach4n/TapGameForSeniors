@@ -7,6 +7,7 @@ export default class Claw {
         this.posMaxY = this.initPosition + this.node.offsetHeight;
         this.targetReached = false;
         this.alreadyMoving = false;
+        // this.spritesToRemove = [];
     }
 
     setPositions(x, y) {
@@ -28,7 +29,6 @@ export default class Claw {
     }
 
     move() {
-        console.log(this.alreadyMoving);
         if (!this.targetReached) {
             this.currentPositionY += this.speed;
             if (this.currentPositionY >= this.posMaxY || this.currentPositionY >= this.targetY) {
@@ -49,5 +49,20 @@ export default class Claw {
     tick() {
         this.move();
         window.requestAnimationFrame(this.tick.bind(this));
+    }
+
+    collison(sprite) {
+        let clawBox = this.node.getBoundingClientRect();
+        let spriteBox = sprite.getBoundingClientRect();
+        
+        if (clawBox.left < spriteBox.right && clawBox.right > spriteBox.left) {
+            if (clawBox.top < spriteBox.bottom && clawBox.bottom > spriteBox.top) {
+                // this.spritesToRemove.push(sprite);
+                // console.log(this.spritesToRemove)
+                sprite.remove();
+                return 1;
+            }
+        }
+        return 0;
     }
 }

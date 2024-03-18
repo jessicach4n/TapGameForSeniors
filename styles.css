@@ -16,6 +16,8 @@ body {
     position: absolute;
     width: 100px;
     height: 100px;
+    z-index: 10;
+    animation: fadein 1s;
 }
 
 .claw {
@@ -26,4 +28,13 @@ body {
     height: 100vh;
     background-color: black;
     border-radius: 80px;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }

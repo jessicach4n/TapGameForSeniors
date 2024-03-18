@@ -1,8 +1,11 @@
 export default class Animal {
   constructor(id, maxWidth, maxHeight, gameSpace) {
     this.node = document.createElement('div');
+    this.text = document.createElement('p');
+    this.text.innerHTML = id;
+    this.node.appendChild(this.text);
     this.node.classList.add('animal');
-    this.node.id = "animal" + id;
+    this.node.id = id;
 
     this.maxHeight = maxHeight;
     this.maxWidth = maxWidth;
@@ -44,23 +47,6 @@ export default class Animal {
     this.posY += this.yDirection;
     this.node.style.left = this.posX + 'px';
     this.node.style.top = this.posY + 'px'; 
-  }
-
-  handleStart() {
-    console.log('touch');
-    this.node.style.color = "green";
-  }
-
-  handleEnd() {
-    console.log('end');
-  }
-
-  handleCancel() {
-    console.log('cancel');
-  }
-
-  handleMove() {
-    console.log('move');
   }
 
   bounce() {
