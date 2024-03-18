@@ -1,10 +1,12 @@
 import Animal from "./animal.js";
+import Claw from "./claw.js";
 
 let maxElement = 7;
 let game = document.getElementById('game');
 let maxHeight = game.offsetHeight;
 let maxWidth = game.offsetWidth;
 let spriteList = [];
+let claw = new Claw();
 
 onload = function() {
     generateAnimals();
@@ -15,7 +17,13 @@ onload = function() {
 function goFish(event) {
     let mouseX = event.clientX;
     let mouseY = event.clientY;
-    console.log(mouseX, mouseY);
+
+    claw.setReset();
+    claw.setPositions(mouseX, mouseY);
+    if (!claw.getAlreadyMoving()) {
+        claw.setAlreadyMoving(true);
+        claw.tick();
+    }
 }
 
 function toggleMenu() {
