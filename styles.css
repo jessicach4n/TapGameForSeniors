@@ -5,6 +5,19 @@ body {
     overflow: hidden;
 }
 
+.instruction {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.868);
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+    color: white;
+    text-align: center;
+}
+
 .game {
     background-image: url('images/background.jpg');
     background-size: cover;
@@ -19,7 +32,6 @@ body {
     position: absolute;
     width: 4vw;
     height: 4vw;
-    z-index: 10;
     animation: fadein 1s;
 }
 

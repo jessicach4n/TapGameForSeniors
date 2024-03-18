@@ -3,6 +3,7 @@ import Claw from "./claw.js";
 
 let maxElement = 10;
 let game = document.getElementById('game');
+let instruction = document.getElementById('instruction');
 let maxHeight = game.offsetHeight;
 let maxWidth = game.offsetWidth;
 let spriteList = [];
@@ -11,6 +12,10 @@ let claw = new Claw();
 let counter = 0;
 
 onload = function() {
+    instruction.addEventListener("click", () => {
+        instruction.style.display = "none";
+    });
+    
     generateAnimals();
     setup();
     game.addEventListener("click", goFish);
