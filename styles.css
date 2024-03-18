@@ -17,17 +17,17 @@ body {
 .animal {
     background-color: red;
     position: absolute;
-    width: 100px;
-    height: 100px;
+    width: 4vw;
+    height: 4vw;
     z-index: 10;
     animation: fadein 1s;
 }
 
 .claw {
     position: absolute;
-    top: -100vh;
-    left: 0;
-    width: 120px;
+    top: -90vh;
+    left: 50vw;
+    width: 6vw;
     height: 100vh;
     background-color: black;
     border-radius: 80px;

@@ -2,7 +2,7 @@ export default class Claw {
     constructor() {
         this.node = document.getElementById('claw');
         this.speed = 8;
-        this.initPosition = -window.innerHeight;
+        this.initPosition = -window.innerHeight*0.9;
         this.currentPositionY = this.initPosition;
         this.posMaxY = this.initPosition + this.node.offsetHeight;
         this.targetReached = false;
