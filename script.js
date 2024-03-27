@@ -60,7 +60,7 @@ function addAnimal() {
 }
 
 function handleStart(event) {
-    event.target.style.backgroundColor = "green";
+    event.target.style.animation = "react 0.5s 1 cubic-bezier(0.5, 0.5, 0.5, 0.5)";
 }
 
 const tick = () => {

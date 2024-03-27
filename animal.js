@@ -6,6 +6,8 @@ export default class Animal {
     this.node.appendChild(this.text);
     this.node.classList.add('animal');
     this.node.id = id;
+    this.leftfish = "images/leftfish.svg";
+    this.rightfish = "images/rightfish.svg";
 
     this.maxHeight = maxHeight;
     this.maxWidth = maxWidth;
@@ -29,13 +31,13 @@ export default class Animal {
   }
 
   move() {
-    if (this.posX <= 0) {
+    if (this.posX < 0) {
       this.hasTouchedLeft = true;
     }
     else if (this.posX > (this.maxWidth - this.node.offsetWidth)) {
       this.hasTouchedRight = true;
     }
-    if (this.posY <= 0) {
+    if (this.posY < 0) {
       this.hasTouchedTop = true;
     }
     else if (this.posY > (this.maxHeight - this.node.offsetHeight)) {
@@ -43,6 +45,12 @@ export default class Animal {
     }
     this.bounce();
   
+    if (this.xDirection == 1) {
+      this.node.style.backgroundImage = 'url(images/fishright.svg)';
+    }
+    else { 
+      this.node.style.backgroundImage = 'url(images/fishleft.svg)';
+    }
     this.posX += this.xDirection;
     this.posY += this.yDirection;
     this.node.style.left = this.posX + 'px';
@@ -68,9 +76,9 @@ export default class Animal {
   
   getRandomInt(dimension) {
     if (dimension == 0) {
-      return Math.floor(Math.random() * (this.maxWidth - 100));
+      return Math.floor(Math.random() * (this.maxWidth - 200));
     }
-    return Math.floor(Math.random() * (this.maxHeight - 100));
+    return Math.floor(Math.random() * (this.maxHeight - 200));
     
   }
 

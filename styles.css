@@ -40,12 +40,12 @@ body {
 }
 
 .game {
-    /* background-image: url('images/background.jpg'); */
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    width: 100vw;
-    height: 100vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 95vw;
+    height: 90vh;
 }
 
 .score {
@@ -54,11 +54,14 @@ body {
 }
 
 .animal {
-    background-color: red;
     position: absolute;
-    width: 4vw;
-    height: 4vw;
+    width: 7vw;
+    height: 7vw;
     animation: fadein 1s;
+    background-image: url('images/fishleft.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .claw {
@@ -105,3 +108,13 @@ footer a {
         transform: translateY(0);
     }
 }
+
+@keyframes react {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
