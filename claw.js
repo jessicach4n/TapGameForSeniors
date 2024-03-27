@@ -2,12 +2,11 @@ export default class Claw {
     constructor() {
         this.node = document.getElementById('claw');
         this.speed = 8;
-        this.initPosition = -window.innerHeight*0.9;
+        this.initPosition = -window.innerHeight*0.8;
         this.currentPositionY = this.initPosition;
         this.posMaxY = this.initPosition + this.node.offsetHeight;
         this.targetReached = false;
         this.alreadyMoving = false;
-        // this.spritesToRemove = [];
     }
 
     setPositions(x, y) {
@@ -57,8 +56,6 @@ export default class Claw {
         
         if (clawBox.left < spriteBox.right && clawBox.right > spriteBox.left) {
             if (clawBox.top < spriteBox.bottom && clawBox.bottom > spriteBox.top) {
-                // this.spritesToRemove.push(sprite);
-                // console.log(this.spritesToRemove)
                 sprite.remove();
                 return 1;
             }

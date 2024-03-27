@@ -10,6 +10,8 @@ let spriteList = [];
 let spritesToRemove = null;
 let claw = new Claw();
 let counter = 0;
+let score = 0;
+
 
 // SRC: Sounds by Pixabay
 let soundfiles = [new Audio('sounds/cat-meow.mp3'), new Audio('sounds/cat-meow2.mp3'), new Audio('sounds/cat-meow3.mp3')];
@@ -39,10 +41,6 @@ function goFish(event) {
     }
 }
 
-function toggleMenu() {
-    console.log('toggle')
-} 
-
 function setup() {
     tick();
 }
@@ -68,20 +66,14 @@ function handleStart(event) {
 const tick = () => {
     spriteList.forEach(sprite => {
         sprite.move();
-        // spritesToRemove = claw.collison(sprite.node)
         counter += claw.collison(sprite.node)
     });
-    
-    // spritesToRemove.forEach(sprite => {
-    //     spriteList.splice(spriteList.indexOf(sprite), 1);
-    // });
-
-    // console.log(spritesToRemove);
-    // console.log(spriteList.length)
 
     if (counter == 1) {
+        score += 1;
+        document.getElementById('score').innerHTML = score;
         counter = 0;
-        setTimeout(addAnimal, 1500);
+        setTimeout(addAnimal, 10);
     }
 
     window.requestAnimationFrame(tick);

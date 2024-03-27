@@ -1,8 +1,12 @@
 body {
-    background-color: #f4f4f4;
+    background-color: rgba(255, 210, 161, 0.868);
+    color: rgb(106, 56, 4); 
     margin: 0;
     padding: 0;
     overflow: hidden;
+    font-family: "Luckiest Guy", cursive;
+    font-weight: 400;
+    font-style: normal;
 }
 
 .instruction {
@@ -10,7 +14,7 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.868);
+    background-color: rgba(255, 210, 161, 0.868);
     width: 100vw;
     height: 100vh;
     z-index: 100;
@@ -18,13 +22,35 @@ body {
     text-align: center;
 }
 
+.instruction div {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.instruction div h1 {
+    font-size: 4vw;
+}
+
+.instruction div p {
+    color: rgb(142, 95, 45); 
+    font-size: 2vw;
+    animation: float 2s infinite cubic-bezier(0.5, 0.5, 0.5, 0.5);
+}
+
 .game {
-    background-image: url('images/background.jpg');
+    /* background-image: url('images/background.jpg'); */
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     width: 100vw;
     height: 100vh;
+}
+
+.score {
+    margin: 2vw;
+    font-size: 1.6vw;
 }
 
 .animal {
@@ -37,12 +63,14 @@ body {
 
 .claw {
     position: absolute;
-    top: -90vh;
+    top: -80vh;
     left: 50vw;
-    width: 6vw;
+    width: 10vw;
     height: 100vh;
-    background-color: black;
-    border-radius: 80px;
+    background-image: url('images/claw.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 footer {
@@ -63,5 +91,17 @@ footer a {
     }
     to {
         opacity: 1;
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-12px);
+    }
+    100% {
+        transform: translateY(0);
     }
 }
