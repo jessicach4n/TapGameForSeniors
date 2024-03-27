@@ -9,7 +9,7 @@ let maxWidth = game.offsetWidth;
 let spriteList = [];
 let spritesToRemove = null;
 let claw = new Claw();
-let counter = 0;
+let collision = false;
 let score = 0;
 
 
@@ -47,14 +47,12 @@ function setup() {
 
 function generateAnimals() {
     for (let i = 0; i < maxElement; i++) {
-        let animal = new Animal(i, maxWidth, maxHeight, document.getElementById('game'));
-        animal.node.addEventListener("click", handleStart);;
-        spriteList.push(animal);
+        addAnimal(i);
     }
 }
 
-function addAnimal() {
-    let animal = new Animal(spriteList.length, maxWidth, maxHeight, document.getElementById('game'));
+function addAnimal(id) {
+    let animal = new Animal(id, maxWidth, maxHeight, document.getElementById('game'));
     animal.node.addEventListener("click", handleStart);
     spriteList.push(animal);
 }
@@ -66,15 +64,12 @@ function handleStart(event) {
 const tick = () => {
     spriteList.forEach(sprite => {
         sprite.move();
-        counter += claw.collison(sprite.node)
+        if(claw.collison(sprite.node)) {
+            score += 1;
+            document.getElementById('score').innerHTML = score;
+            addAnimal(spriteList.length);
+        }
     });
-
-    if (counter == 1) {
-        score += 1;
-        document.getElementById('score').innerHTML = score;
-        counter = 0;
-        setTimeout(addAnimal, 10);
-    }
 
     window.requestAnimationFrame(tick);
 }

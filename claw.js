@@ -53,13 +53,14 @@ export default class Claw {
     collison(sprite) {
         let clawBox = this.node.getBoundingClientRect();
         let spriteBox = sprite.getBoundingClientRect();
+        let collison = false;
         
         if (clawBox.left < spriteBox.right && clawBox.right > spriteBox.left) {
             if (clawBox.top < spriteBox.bottom && clawBox.bottom > spriteBox.top) {
                 sprite.remove();
-                return 1;
+                collison = true;
             }
         }
-        return 0;
+        return collison;
     }
 }
