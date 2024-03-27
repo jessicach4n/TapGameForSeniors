@@ -11,6 +11,9 @@ let spritesToRemove = null;
 let claw = new Claw();
 let counter = 0;
 
+// SRC: Sounds by Pixabay
+let soundfiles = [new Audio('sounds/cat-meow.mp3'), new Audio('sounds/cat-meow2.mp3'), new Audio('sounds/cat-meow3.mp3')];
+
 onload = function() {
     instruction.addEventListener("click", () => {
         instruction.style.display = "none";
@@ -24,6 +27,9 @@ onload = function() {
 function goFish(event) {
     let mouseX = event.clientX;
     let mouseY = event.clientY;
+
+    let soundfile = soundfiles[Math.floor(Math.random() * soundfiles.length)];
+    soundfile.play();
 
     if (!claw.getAlreadyMoving()) {
         claw.setReset();
