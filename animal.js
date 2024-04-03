@@ -16,7 +16,6 @@ export default class Animal {
     
     this.posX = this.getRandomInt(0);
     this.posY = this.getRandomInt(1);
-    this.speed = Math.random();
     
     this.xDirection = this.randomDirection();
     this.yDirection = this.randomDirection();
@@ -73,12 +72,12 @@ export default class Animal {
   }
 
   randomDirection() {
-    return Math.random() > 0.5 ? 1 : -1;
+    return Math.random() > 0.5 ? 0.5 : -0.5;
   }
   
   getRandomInt(dimension) {
     if (dimension == 0) {
-      return Math.floor(Math.random() * (this.maxWidth - 200));
+      return Math.floor(Math.random() * (this.maxWidth - 250));
     }
     return Math.floor(Math.random() * (this.maxHeight - 200));
     
