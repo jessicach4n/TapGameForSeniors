@@ -1,3 +1,7 @@
+.game-container {
+    display: block;
+}
+
 body {
     background-image: url('images/background.jpg');
     background-color: rgb(255, 210, 161);
@@ -18,7 +22,7 @@ body {
     background-color: rgba(255, 210, 161, 0.868);
     width: 100vw;
     height: 100vh;
-    z-index: 100;
+    z-index: 1;
     color: white;
     text-align: center;
 }
@@ -76,6 +80,43 @@ body {
     background-repeat: no-repeat;
     background-position: center;
 }
+
+.cellphone {
+    display: none;
+    z-index: 2;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+}
+
+.cellphone div {
+    font-size: 6vw;
+    color: white;
+    text-align: center;
+    position: fixed;
+    width: 80%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.cellphone div a {
+    color: white;
+    font-size: 3vw;
+    
+}
+
+@media screen and (max-width: 600px) {
+    .game-container {
+        display: none;
+    }
+    .cellphone {
+        display: block;
+    }
+  }
 
 @keyframes fadein {
     from {
