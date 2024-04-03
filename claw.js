@@ -23,7 +23,7 @@ export default class Claw {
         this.alreadyMoving = value;
     }
 
-    setReset() {
+    reset() {
         this.targetReached = false;
     }
 
@@ -43,11 +43,12 @@ export default class Claw {
         }
         
         this.node.style.top = this.currentPositionY + 'px';
-    }
 
-    tick() {
-        this.move();
-        window.requestAnimationFrame(this.tick.bind(this));
+        let id = window.requestAnimationFrame(this.move.bind(this));
+
+        if (!this.alreadyMoving) {
+            window.cancelAnimationFrame(id);
+        }
     }
 
     collison(sprite) {
