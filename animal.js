@@ -46,7 +46,7 @@ export default class Animal {
     }
     this.bounce();
   
-    if (this.xDirection == 1) {
+    if (this.xDirection > 0) {
       this.node.style.backgroundImage = 'url(images/fishright.svg)';
     }
     else { 
