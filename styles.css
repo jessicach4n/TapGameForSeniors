@@ -56,8 +56,8 @@ body {
 
 .animal {
     position: absolute;
-    width: 7vw;
-    height: 7vw;
+    width: 9vw;
+    height: 9vw;
     animation: fadein 1s;
     background-image: url('images/fishleft.svg');
     background-size: contain;

@@ -5,6 +5,7 @@ export default class Animal {
     // this.text = document.createElement('p');
     // this.text.innerHTML = id;
     // this.node.appendChild(this.text);
+
     this.node.classList.add('animal');
     this.node.id = id;
     this.leftfish = "images/leftfish.svg";
